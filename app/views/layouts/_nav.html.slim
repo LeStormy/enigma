@@ -8,13 +8,19 @@
         span
         span
     .navbar-menu id='nav-menu'
-      / .navbar-start
-      /   = active_link_to root_path, class: "navbar-item", class_active: "is-active", active: :exact do
-      /     | 2
-      /   = active_link_to root_path, class: "navbar-item", class_active: "is-active", active: :exact do
-      /     | 3
-      .navbar-end
+      .navbar-start
+        = active_link_to leaderboard_path, class: "navbar-item", class_active: "is-active", active: :exact do
+          | Leaderboard
         = active_link_to about_path, class: "navbar-item", class_active: "is-active", active: :exact do
           | About
+      .navbar-end
+        - if current_user.present?
+          = active_link_to current_user.current_level, class: "navbar-item", class_active: "is-active", active: :exact do
+            | Resume
+          = active_link_to destroy_user_session_path, method: :delete, class: "navbar-item", class_active: "is-active", active: :exact do
+            | #{current_user.username} - Log out
+        - else
+          = active_link_to new_user_session_path, class: "navbar-item", class_active: "is-active", active: :exact do
+            | Log In
 
 #navbar-padder

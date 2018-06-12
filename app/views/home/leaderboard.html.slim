@@ -1,0 +1,20 @@
+.container
+  .columns
+    .column.is-3
+    .column.is-6
+      table.table.is-fullwidth
+        thead
+          tr
+            th
+              | Username
+            th
+              | Current Level
+        tbody
+          - if @scores.present?
+            - @scores.each do |e|
+              tr
+                td
+                  = e[0]
+                td
+                  = e[1]
+    .column.is-3

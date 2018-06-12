@@ -1,5 +1,5 @@
 class ChangeEmailToUsername < ActiveRecord::Migration[5.2]
   def change
-    rename_column :users, :email, :username
+    add_column :users, :username, :string, unique: true
   end
 end
