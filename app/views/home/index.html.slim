@@ -1,0 +1,13 @@
+.container
+  .has-text-centered.is-size-1
+    | Welcome
+  br
+  .columns
+    .column.is-5
+    .column.is-2
+      .field
+        .control
+          form
+            div style="display:flex;align-items:center;"
+              = text_field_tag :answer, params[:answer], method: :post, class: "input"
+    .column.is-5

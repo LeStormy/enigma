@@ -1,0 +1,19 @@
+.container
+  .is-size-1.has-text-centered
+    | STEP ONE
+  br
+  .is-size-4.has-text-centered
+    | The voices in my Head..
+  br
+  br
+  = form_tag '/easy/step_one', method: :get do
+    - for i in 0..5
+      .columns
+        .column.is-3
+        .column.is-6.header-row
+          - for j in 0..5
+              = check_box_tag "shape[]", false, false, value: "#{i}-#{j}", class: "is-large"
+        .column.is-3
+      br
+    .has-text-centered
+      = submit_tag 'Submit', class: "button"

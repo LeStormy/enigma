@@ -1,0 +1,20 @@
+.nav.navbar.is-fixed-top.is-dark role="navigation" aria-label="dropdown navigation"
+  .container
+    .navbar-brand
+      a.navbar-item href="/"
+        | Enigma
+      span.navbar-burger id="nav-toggle" class="nav-toggle" onclick="document.getElementById('nav-menu').classList.toggle('is-active');"
+        span
+        span
+        span
+    .navbar-menu id='nav-menu'
+      / .navbar-start
+      /   = active_link_to root_path, class: "navbar-item", class_active: "is-active", active: :exact do
+      /     | 2
+      /   = active_link_to root_path, class: "navbar-item", class_active: "is-active", active: :exact do
+      /     | 3
+      .navbar-end
+        = active_link_to about_path, class: "navbar-item", class_active: "is-active", active: :exact do
+          | About
+
+#navbar-padder
