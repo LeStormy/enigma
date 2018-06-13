@@ -1,11 +1,13 @@
 .container
   .is-size-1.has-text-centered
-    | STEP THREE
+    | The YouTube Journey
   br
   .is-size-4.has-text-centered
-    | The key is invisible...
+    | Part One - Time is of the essence
   br
   br
+  .has-text-centered
+    img src=asset_path('youtube-part-one.png')
   .columns
     .column.is-5
     .column.is-2
@@ -14,13 +16,4 @@
           form
             div style="display:flex;align-items:center;"
               = text_field_tag :input, params[:input], method: :post, class: "input"
-          - if @please == true
-            .has-text-danger
-              | Did you actually fall for that?
     .column.is-5
-.columns
-  .column.is-1
-    .has-text-white
-      | The key is
-    .has-text-white
-      | actually visible

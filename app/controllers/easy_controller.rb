@@ -24,11 +24,18 @@ class EasyController < ApplicationController
       redirect_to "/404"
     end
 
-#    if WIN
-#      LevelUser.create!(user_id: current_user.id, level_id: 4)
-# =>   current_user.update!(current_level: "/easy/step_four", level_value: 4)
-#      redirect_to easy_step_four_path
-#    end
+    @please = false
+    if params[:input].present?
+      if params[:input].downcase == "actually visible"
+        LevelUser.create!(user_id: current_user.id, level_id: 4)
+        current_user.update!(current_level: "/easy/step_four", level_value: 4)
+        redirect_to easy_step_four_path
+      elsif params[:input].downcase == "invisible"
+        @please = true
+      else
+        params[:input] = ""
+      end
+    end
   end
 
   def step_four

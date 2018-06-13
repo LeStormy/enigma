@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
 
   ## HARD LEVELS ##
+  get "/hard/level_1" => "hard#level_1"
 
 
   ## INSANE LEVELS ##
