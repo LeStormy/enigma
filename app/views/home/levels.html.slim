@@ -9,5 +9,8 @@
             ul
               - @levels.where(difficulty: f.downcase).each do |e|
                 li
-                  a href="#{e.url}"
+                  - if @userlevels.include?(e)
+                    a href="#{e.url}"
+                      = e.name
+                  - else
                     = e.name

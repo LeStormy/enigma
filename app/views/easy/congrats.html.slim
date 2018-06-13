@@ -1,0 +1,11 @@
+.container
+  .is-size-1.has-text-centered
+    | Congrats!
+  br
+  .is-size-4.has-text-centered
+    | You made it through the easy levels. Let's spice things up a lil bit.
+  br
+  br
+  .has-text-centered
+    = active_link_to medium_1_path, class: "is-size-3 is-link", class_active: "is-active", active: :exact do
+      | Take me to the Medium levels!

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   match "/404", :to => "errors#not_found", :via => :all
 
+  ## EASY LEVELS ##
   get "/easy/step_one" => "easy#step_one"
   get "/easy/step_two" => "easy#step_two"
   get "/easy/atlanta" => "easy#atlanta"
@@ -23,7 +24,18 @@ Rails.application.routes.draw do
   get "/easy/step_ten" => "easy#step_ten"
   get "/easy/step_eleven" => "easy#step_eleven"
   get "/easy/step_twelve" => "easy#step_twelve"
+  get "/easy/congrats" => "easy#congrats"
 
-  resources :easy do
-  end
+
+  ## MEDIUM LEVELS ##
+  get "/medium/1" => "medium#level_1"
+
+
+  ## HARD LEVELS ##
+
+
+  ## INSANE LEVELS ##
+
+
+
 end

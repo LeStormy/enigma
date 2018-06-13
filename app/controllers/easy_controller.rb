@@ -125,9 +125,14 @@ class EasyController < ApplicationController
     end
 
 #    if WIN
-#      current_user.update!(current_level: "/easy/step_twelve", level_value: 12)
-#      redirect_to easy_step_twelve_path
+#      LevelUser.create!(user_id: current_user.id, level_id: 13)
+#      current_user.update!(current_level: "/medium/1", level_value: 13)
+#      redirect_to easy_congrats_path
 #    end
+  end
+
+  def congrats
+
   end
 
 ###
