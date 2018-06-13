@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :authentication_keys => [:username]
   validates :username, uniqueness: true
 
+  has_many :level_users, dependent: :destroy
+  has_many :levels, through: :level_users
   def email_required?
     false
   end

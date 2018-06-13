@@ -1,0 +1,13 @@
+.container
+  .columns
+    - ["Easy", "Medium", "Hard", "Insane"].each do |f|
+      .column.is-3
+        .is-size-2.has-text-centered
+          = f
+        .card
+          .card-content
+            ul
+              - @levels.where(difficulty: f.downcase).each do |e|
+                li
+                  a href="#{e.url}"
+                    = e.name

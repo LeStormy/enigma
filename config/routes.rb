@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   get '/about', to: "home#about"
   get '/leaderboard', to: "home#leaderboard"
+  get '/levels', to: "home#levels"
 
   match "/404", :to => "errors#not_found", :via => :all
 

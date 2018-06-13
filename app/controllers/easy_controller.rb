@@ -1,36 +1,38 @@
 class EasyController < ApplicationController
   before_action :authenticate_user!
   def step_one
-    if current_user.level_value < 1
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 1).present?
       redirect_to "/404"
     end
     @TITLE = "ZEnigma"
     if params[:shape] == ["0-0", "0-1", "0-2", "0-3", "0-4", "0-5", "1-4", "2-3", "3-2", "4-1", "5-0", "5-1", "5-2", "5-3", "5-4", "5-5"]
       @TITLE = "Enigma"
+      LevelUser.create!(user_id: current_user.id, level_id: 2)
       current_user.update!(current_level: "/easy/step_two", level_value: 2)
       redirect_to easy_step_two_path
     end
   end
 
   def step_two
-    if current_user.level_value < 2
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 2).present?
       redirect_to "/404"
     end
   end
 
   def step_three
-    if current_user.level_value < 3
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 3).present?
       redirect_to "/404"
     end
 
 #    if WIN
-#      current_user.update!(current_level: "/easy/step_four", level_value: 4)
+#      LevelUser.create!(user_id: current_user.id, level_id: 4)
+# =>   current_user.update!(current_level: "/easy/step_four", level_value: 4)
 #      redirect_to easy_step_four_path
 #    end
   end
 
   def step_four
-    if current_user.level_value < 4
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 4).present?
       redirect_to "/404"
     end
 
@@ -41,7 +43,7 @@ class EasyController < ApplicationController
   end
 
   def step_five
-    if current_user.level_value < 5
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 5).present?
       redirect_to "/404"
     end
 
@@ -52,7 +54,7 @@ class EasyController < ApplicationController
   end
 
   def step_six
-    if current_user.level_value < 6
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 6).present?
       redirect_to "/404"
     end
 
@@ -63,7 +65,7 @@ class EasyController < ApplicationController
   end
 
   def step_seven
-    if current_user.level_value < 7
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 7).present?
       redirect_to "/404"
     end
 
@@ -74,7 +76,7 @@ class EasyController < ApplicationController
   end
 
   def step_eight
-    if current_user.level_value < 8
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 8).present?
       redirect_to "/404"
     end
 
@@ -85,7 +87,7 @@ class EasyController < ApplicationController
   end
 
   def step_nine
-    if current_user.level_value < 9
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 9).present?
       redirect_to "/404"
     end
 
@@ -96,7 +98,7 @@ class EasyController < ApplicationController
   end
 
   def step_ten
-    if current_user.level_value < 10
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 10).present?
       redirect_to "/404"
     end
 
@@ -107,7 +109,7 @@ class EasyController < ApplicationController
   end
 
   def step_eleven
-    if current_user.level_value < 11
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 11).present?
       redirect_to "/404"
     end
 
@@ -118,7 +120,7 @@ class EasyController < ApplicationController
   end
 
   def step_twelve
-    if current_user.level_value < 12
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 12).present?
       redirect_to "/404"
     end
 
@@ -135,9 +137,10 @@ class EasyController < ApplicationController
 ### LEVEL UP HELPERS
 
   def atlanta
-    if current_user.level_value < 2
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 2).present?
       redirect_to "/404"
     end
+    LevelUser.create!(user_id: current_user.id, level_id: 3)
     current_user.update!(current_level: "/easy/step_three", level_value: 3)
     redirect_to easy_step_three_path
   end
