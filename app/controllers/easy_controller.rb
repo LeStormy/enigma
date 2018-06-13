@@ -16,11 +16,6 @@ class EasyController < ApplicationController
     if current_user.level_value < 2
       redirect_to "/404"
     end
-
-#    if WIN
-#      current_user.update!(current_level: "/easy/step_three", level_value: 3)
-#      redirect_to step_three_path
-#    end
   end
 
   def step_three
@@ -30,7 +25,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_four", level_value: 4)
-#      redirect_to step_four_path
+#      redirect_to easy_step_four_path
 #    end
   end
 
@@ -41,7 +36,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_five", level_value: 5)
-#      redirect_to step_five_path
+#      redirect_to easy_step_five_path
 #    end
   end
 
@@ -52,7 +47,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_six", level_value: 6)
-#      redirect_to step_six_path
+#      redirect_to easy_step_six_path
 #    end
   end
 
@@ -63,7 +58,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_seven", level_value: 7)
-#      redirect_to step_seven_path
+#      redirect_to easy_step_seven_path
 #    end
   end
 
@@ -74,7 +69,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_eight", level_value: 8)
-#      redirect_to step_eight_path
+#      redirect_to easy_step_eight_path
 #    end
   end
 
@@ -85,7 +80,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_nine", level_value: 9)
-#      redirect_to step_nine_path
+#      redirect_to easy_step_nine_path
 #    end
   end
 
@@ -96,7 +91,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_ten", level_value: 10)
-#      redirect_to step_ten_path
+#      redirect_to easy_step_ten_path
 #    end
   end
 
@@ -107,7 +102,7 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_eleven", level_value: 11)
-#      redirect_to step_eleven_path
+#      redirect_to easy_step_eleven_path
 #    end
   end
 
@@ -118,13 +113,34 @@ class EasyController < ApplicationController
 
 #    if WIN
 #      current_user.update!(current_level: "/easy/step_twelve", level_value: 12)
-#      redirect_to step_twelve_path
+#      redirect_to easy_step_twelve_path
 #    end
   end
 
+  def step_twelve
+    if current_user.level_value < 12
+      redirect_to "/404"
+    end
+
+#    if WIN
+#      current_user.update!(current_level: "/easy/step_twelve", level_value: 12)
+#      redirect_to easy_step_twelve_path
+#    end
+  end
 
 ###
 ### ETC, ETC...
 ###
+
+### LEVEL UP HELPERS
+
+  def atlanta
+    if current_user.level_value < 2
+      redirect_to "/404"
+    end
+    current_user.update!(current_level: "/easy/step_three", level_value: 3)
+    redirect_to easy_step_three_path
+  end
+
 
 end

@@ -15,7 +15,7 @@
           | About
       .navbar-end
         - if current_user.present?
-          = active_link_to current_user.current_level, class: "navbar-item", class_active: "is-active", active: :exact do
+          = active_link_to current_user.current_level, class: "navbar-item is-info", class_active: "is-active", active: :exact do
             | Resume
           = active_link_to destroy_user_session_path, method: :delete, class: "navbar-item", class_active: "is-active", active: :exact do
             | #{current_user.username} - Log out

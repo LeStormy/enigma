@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/easy/step_one" => "easy#step_one"
   get "/easy/step_two" => "easy#step_two"
+  get "/easy/atlanta" => "easy#atlanta"
   get "/easy/step_three" => "easy#step_three"
   get "/easy/step_four" => "easy#step_four"
   get "/easy/step_five" => "easy#step_five"
