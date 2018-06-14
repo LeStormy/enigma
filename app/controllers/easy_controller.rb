@@ -53,13 +53,14 @@ class EasyController < ApplicationController
       redirect_to "/404"
     end
 
-    # if WIN
-    #   if current_user.level_value < 6
-    #     LevelUser.create!(user_id: current_user.id, level_id: 6)
-    #     current_user.update!(current_level: "/easy/step_six", level_value: 6)
-    #   end
-      # redirect_to easy_step_six_path
-    # end
+    if params[:key].present? && params[:key] == ENV["STEP_FIVE_KEY"]
+      if current_user.level_value < 6
+        LevelUser.create!(user_id: current_user.id, level_id: 6)
+        current_user.update!(current_level: "/easy/step_six", level_value: 6)
+      end
+      redirect_to easy_step_six_path
+    end
+    params[:key] = ""
   end
 
   def step_six
@@ -172,9 +173,9 @@ class EasyController < ApplicationController
       if params[:input].downcase == ENV["STEP_FOUR_KEY"] || params[:input].downcase == ENV["STEP_FOUR_KEY_ALT"]
         if current_user.level_value < 5
           LevelUser.create!(user_id: current_user.id, level_id: 5)
-          current_user.update!(current_level: "/easy/step_five", level_value: 5)
+          current_user.update!(current_level: "/easy/step_five?key=", level_value: 5)
         end
-        redirect_to easy_step_five_path
+        redirect_to easy_step_five_path(key: "")
       else
         params[:input] = ""
       end

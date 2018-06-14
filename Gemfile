@@ -67,3 +67,4 @@ gem 'rails-assets-bulma', source: 'https://rails-assets.org'
 gem "slim-rails"
 gem 'figaro'
 gem "active_link_to"
+gem 'jquery-rails'

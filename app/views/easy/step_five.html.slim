@@ -1,10 +1,15 @@
-.container
+.container style="user-select: none; "
   .is-size-1.has-text-centered
     | STEP FIVE
   br
   .is-size-4.has-text-centered
-    | description
-  br
-  br
-  .has-text-centered
-    
+    span id="trigger" class="has-text-black"
+      | Blank
+    span
+      = " Page Syndrome"
+div style="padding-top:800px; padding-left:1500px;"
+  .has-text-centered.has-text-white.is-size-7 id="hidden" name="Inspecting the code won't help you much.." style="position:absolute; user-select: none; z-index: 10;"
+    | Such a pretty blue isn't it?
+div style="padding-top:800px; padding-left:1500px;"
+
+= javascript_include_tag 'step_five', 'data-turbolinks-track': 'reload'
