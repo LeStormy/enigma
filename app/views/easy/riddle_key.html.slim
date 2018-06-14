@@ -1,0 +1,22 @@
+.container
+  br
+  br
+  br
+  .is-size-2.has-text-centered
+    | Key
+  br
+  .columns
+    .column.is-5
+    .column.is-2
+      .field
+        .control
+          form
+            div style="display:flex;align-items:center;"
+              = text_field_tag :input, params[:input], method: :post, class: "input"
+      br
+      br
+      br
+      .has-text-centered
+        = active_link_to easy_step_four_path, class: "is-link is-size-4" do
+          | Go Back
+    .column.is-5

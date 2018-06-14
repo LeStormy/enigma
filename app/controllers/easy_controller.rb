@@ -4,11 +4,14 @@ class EasyController < ApplicationController
     if !LevelUser.find_by(user_id: current_user.id, level_id: 1).present?
       redirect_to "/404"
     end
-    @TITLE = "ZEnigma"
-    if params[:shape] == ["0-0", "0-1", "0-2", "0-3", "0-4", "0-5", "1-4", "2-3", "3-2", "4-1", "5-0", "5-1", "5-2", "5-3", "5-4", "5-5"]
+    @TITLE = ENV["STEP_ONE_TITLE"]
+    puts ENV["STEP_ONE_KEY"]
+    if params[:shape].to_s == ENV["STEP_ONE_KEY"]
       @TITLE = "Enigma"
-      LevelUser.create!(user_id: current_user.id, level_id: 2)
-      current_user.update!(current_level: "/easy/step_two", level_value: 2)
+      if current_user.level_value < 2
+        LevelUser.create!(user_id: current_user.id, level_id: 2)
+        current_user.update!(current_level: "/easy/step_two", level_value: 2)
+      end
       redirect_to easy_step_two_path
     end
   end
@@ -27,8 +30,10 @@ class EasyController < ApplicationController
     @please = false
     if params[:input].present?
       if params[:input].downcase == "actually visible"
-        LevelUser.create!(user_id: current_user.id, level_id: 4)
-        current_user.update!(current_level: "/easy/step_four", level_value: 4)
+        if current_user.level_value < 4
+          LevelUser.create!(user_id: current_user.id, level_id: 4)
+          current_user.update!(current_level: "/easy/step_four", level_value: 4)
+        end
         redirect_to easy_step_four_path
       elsif params[:input].downcase == "invisible"
         @please = true
@@ -44,8 +49,10 @@ class EasyController < ApplicationController
     end
 
 #    if WIN
-#      current_user.update!(current_level: "/easy/step_five", level_value: 5)
-#      redirect_to easy_step_five_path
+#      if current_user.level_value < 5
+# =>       current_user.update!(current_level: "/easy/step_five", level_value: 5)
+#      end
+# =>  redirect_to easy_step_five_path
 #    end
   end
 
@@ -152,10 +159,28 @@ class EasyController < ApplicationController
     if !LevelUser.find_by(user_id: current_user.id, level_id: 2).present?
       redirect_to "/404"
     end
-    LevelUser.create!(user_id: current_user.id, level_id: 3)
-    current_user.update!(current_level: "/easy/step_three", level_value: 3)
+    if current_user.level_value < 3
+      LevelUser.create!(user_id: current_user.id, level_id: 3)
+      current_user.update!(current_level: "/easy/step_three", level_value: 3)
+    end
     redirect_to easy_step_three_path
   end
 
+  def riddle_key
+    if !LevelUser.find_by(user_id: current_user.id, level_id: 4).present?
+      redirect_to "/404"
+    end
+    if params[:input].present?
+      if params[:input].downcase == ENV["STEP_FOUR_KEY"] || params[:input].downcase == ENV["STEP_FOUR_KEY_ALT"]
+        if current_user.level_value < 5
+          LevelUser.create!(user_id: current_user.id, level_id: 5)
+          current_user.update!(current_level: "/easy/step_five", level_value: 5)
+        end
+        redirect_to easy_step_five_path
+      else
+        params[:input] = ""
+      end
+    end
+  end
 
 end

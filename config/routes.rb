@@ -16,6 +16,17 @@ Rails.application.routes.draw do
   get "/easy/atlanta" => "easy#atlanta"
   get "/easy/step_three" => "easy#step_three"
   get "/easy/step_four" => "easy#step_four"
+    ### THE RIDDLE ###
+    get "/easy/riddle/voiceless" => "easy#riddle_voiceless"
+    get "/easy/riddle/it_cries" => "easy#riddle_it_cries"
+    get "/easy/riddle/wingless" => "easy#riddle_wingless"
+    get "/easy/riddle/flutters" => "easy#riddle_flutters"
+    get "/easy/riddle/touchless" => "easy#riddle_touchless"
+    get "/easy/riddle/bites" => "easy#riddle_bites"
+    get "/easy/riddle/mouthless" => "easy#riddle_mouthless"
+    get "/easy/riddle/mutters" => "easy#riddle_mutters"
+    get "/easy/riddle/key" => "easy#riddle_key"
+    ###
   get "/easy/step_five" => "easy#step_five"
   get "/easy/step_six" => "easy#step_six"
   get "/easy/step_seven" => "easy#step_seven"

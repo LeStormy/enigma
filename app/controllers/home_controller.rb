@@ -16,7 +16,7 @@ class HomeController < ApplicationController
 
   def levels
     if current_user.present?
-      @userlevels = Level.where(id: LevelUser.where(user_id: current_user))
+      @userlevels = Level.where(id: LevelUser.where(user_id: current_user).pluck(:level_id))
       @levels = Level.all.order(:level_number)
     end
   end
